@@ -88,18 +88,22 @@ var isNumeric = function (number) {
 //Usage Example:
 //'texting'.replaceChar('s', 2); //will result in 'testing'
 String.prototype.replaceChar = function(char, index) {
-    var str = this.split("");
-    str[index] = char;
-    return str.join("");
+    if (index >= 0 && index < this.length) {
+        var str = this.split("");
+        str[index] = char;
+        return str.join("");
+    }
+    return this;
 }
 
 //Name: replaceChars
 //Description: Allows replacement of a specified number of character from a specified index. Builds upon replaceChar()
-//Usage: String.replaceChars(char, startIndex, length)
+//Usage: String.replaceChars(char, startIndex, length) // length is inclusive of the starting index
 //Usage Example:
 //'texting'.replaceChars('+', 2, 3); //will result in 'te+++ng'
 String.prototype.replaceChars = function (char, startIndex, length) {
-    if (startIndex < this.length && startIndex + length <= this.length) {
+    if (startIndex >= 0 && length >= 0 && startIndex < this.length) {
+        startIndex + length <= this.length ? null : length = this.length - startIndex;
         var returnValue = this;
         for (var i = startIndex; i < startIndex + length; i++) {
             returnValue = returnValue.replaceChar(char, i);
