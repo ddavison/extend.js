@@ -124,7 +124,7 @@ String.prototype.indicesOf = function (searchString) {
     var indices = [];
     while ((result = this.indexOf(searchString, startPoint)) > -1) {
         indices.push(result);
-        startPoint = result + searchString.length + 1;
+        startPoint = result + searchString.length;
     }
     return indices;
 }
