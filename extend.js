@@ -128,3 +128,25 @@ String.prototype.indicesOf = function (searchString) {
     }
     return indices;
 }
+
+//Name: startsWith
+//Description: Checks to see if the selected string starts with the given input.
+//Usage: String.startsWith(input); //returns bool.
+//Usage Example: 
+//'test'.startsWith('te'); //returns true.
+//'test'.startsWith('st'); //returns false.
+//'test'.startsWith('tex'); //returns false.
+String.prototype.startsWith = function (input) {
+    return this.indexOf(input) == 0;
+};
+
+//Name: endsWith
+//Description: Checks to see if the selected string ends with the given input.
+//Usage: String.endsWith(input); //returns bool.
+//Usage Example: 
+//'test'.endsWith('te'); //returns false.
+//'test'.endsWith('st'); //returns true.
+//'test'.endsWith('tex'); //returns false.
+String.prototype.endsWith = function (input) {
+    return this.indexOf(input) == this.length - input.length;
+};
