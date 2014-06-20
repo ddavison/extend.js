@@ -150,3 +150,19 @@ String.prototype.startsWith = function (input) {
 String.prototype.endsWith = function (input) {
     return this.indexOf(input) == this.length - input.length;
 };
+
+//Name: contains
+//Description: Checks to see if the selected array contains the given input.
+//Usage: [].contains(input); //returns bool.
+//Usage Example: 
+//[1,2,3,4,5].contains('te'); //returns false.
+//[1,2,3,4,5].contains(5); //returns true.
+//[1,2,3,4,5].contains('5'); //returns true due to automatic casting.
+Array.prototype.contains = function (input) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == input) {
+            return true;
+        }
+    }
+    return false;
+};
