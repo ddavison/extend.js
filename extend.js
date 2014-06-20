@@ -1,4 +1,6 @@
-﻿String.prototype.padLeft = function (char, length) {
+﻿//https://github.com/omgftw/extend.js
+
+String.prototype.padLeft = function (char, length) {
     if (typeof char === "string" && typeof length === "number" && length >= 1) {
         var tempString = "";
         var loops = Math.floor((length - this.length) / char.length);
