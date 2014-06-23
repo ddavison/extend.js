@@ -9,8 +9,10 @@ String
 	
 	String.startsWith
 		Description: Checks to see if the selected string starts with the given input.
-		Usage: String.startsWith(input)
+		Usage: String.startsWith(input, options)
 		Return Type: boolean
+		Options:
+			caseSensitive: boolean (default: false)
 		Usage Examples: 
 			"test".startsWith("te"); 
 				Returns true
@@ -18,11 +20,17 @@ String
 				Returns false
 			"test".startsWith("tex"); 
 				Returns false
+			"test".startsWith("TE"); 
+				Returns true
+			"test".startsWith("TE", {caseSensitive: true}); 
+				Returns false
 
 	String.endsWith
 		Description: Checks to see if the selected string ends with the given input.
-		Usage: String.endsWith(input)
+		Usage: String.endsWith(input, options)
 		Return Type: boolean
+		Options:
+			caseSensitive: boolean (default: false)
 		Usage Examples: 
 			"test".endsWith("te"); 
 				Returns false
@@ -30,15 +38,25 @@ String
 				Returns true
 			"test".endsWith("tex"); 
 				Returns false
+			"test".endsWith("ST"); 
+				Returns true
+			"test".endsWith("ST", {caseSensitive: true}); 
+				Returns false
 				
 	String.contains
 		Description: Checks to see if the selected string contains the given input.
-		Usage: String.contains(input)
+		Usage: String.contains(input, options)
 		Return Type: boolean
+		Options:
+			caseSensitive: boolean (default: false)
 		Usage Examples:
-			"test".contains('te');
+			"test".contains("te");
 				Returns true
-			"test".contains('tex');
+			"test".contains("tex");
+				Returns false
+			"test".contains("TE");
+				Returns true
+			"test".contains("TE", {caseSensitive: true});
 				Returns false
 				
 	String.padLeft
@@ -46,9 +64,9 @@ String
 		Usage: String.padLeft(character[s], integer)
 		Return Type: string
 		Usage Examples:
-			"string".padLeft('0', 15);
+			"string".padLeft("0", 15);
 				Returns "000000000string"
-			"string".padLeft('0a', 15);
+			"string".padLeft("0a", 15);
 				Returns "0a0a0a0a0string"
 				
 	String.padRight
@@ -56,9 +74,9 @@ String
 		Usage: String.padRight(character[s], integer)
 		Return Type: string
 		Usage Examples:
-			"string".padRight('0', 15);
+			"string".padRight("0", 15);
 				Returns "string000000000"
-			"string".padRight('0a', 15);
+			"string".padRight("0a", 15);
 				Returns "string0a0a0a0a0"
 				
 	String.replaceChar
@@ -66,7 +84,7 @@ String
 		Usage: String.replaceChar(char, index)
 		Return Type: string
 		Usage Example:
-			"texting".replaceChar('s', 2); 
+			"texting".replaceChar("s", 2); 
 				Returns "testing"
 				
 	String.replaceChars
@@ -75,15 +93,19 @@ String
 		Return Type: string
 		Usage Example:
 			"texting".replaceChars("+", 2, 3);
-				Returns 'te+++ng'
+				Returns "te+++ng"
 				
 	String.indicesOf
 		Description: Finds all occurrences of a specified string within another string. Builds upon indexOf()
-		Usage: String.indicesOf(searchString)
+		Usage: String.indicesOf(searchString, options)
 		Return Type: object (Array)
+		Options:
+			caseSensitive: boolean (default: false)
 		Usage Example:
-		'texting'.indicesOf('t'); 
+		"texting".indicesOf("T"); 
 			Returns [0, 3]
+		"texting".indicesOf("T", {caseSensitive: true});
+			Returns [];
 
 Number
 	
@@ -103,15 +125,21 @@ Array
 
 	Array.contains
 		Description: Checks to see if the selected array contains the given input.
-		Usage: [].contains(input); 
+		Usage: [].contains(input, options); 
 		Return Type: boolean
+		Options:
+			caseSensitive: boolean (default: false, Only works for strings)
 		Usage Examples: 
-			[1,2,3,4,5].contains('te'); 
+			[1,2,3,4,5].contains("te"); 
 				Returns false
 			[1,2,3,4,5].contains(5); 
 				Returns true
-			[1,2,3,4,5].contains('5'); 
+			[1,2,3,4,5].contains("5"); 
 				Returns true (due to automatic casting)
+			["test", "other"].contains("TEST");
+				Returns true
+			["test", "other"].contains("TEST", {caseSensitive: true});
+				Returns false
 			
 Function
 
