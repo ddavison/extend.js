@@ -133,7 +133,7 @@ String.prototype.toCharArray = function (options) {
 };
 
 String.prototype.repeat = function (repeatAmount, options) {
-    var returnString = this;
+    var returnString = "";
     for (var i = 0; i < repeatAmount; i++) {
         returnString += this;
     }

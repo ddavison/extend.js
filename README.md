@@ -107,6 +107,16 @@ String
 		"texting".indicesOf("T", {caseSensitive: true});
 			Returns [];
 
+	String.repeat
+		Description: Repeats the string a given number of time
+		Usage: String.repeat(repeatAmount)
+		Return Type: string
+		Usage Example:
+		"test".repeat(3);
+			Returns "testtesttest"
+		"0".repeat(10);
+			Returns "0000000000"
+		
 	String.append
 		Description: Appends the given text to the string
 		Usage: String.append(appendString, options)

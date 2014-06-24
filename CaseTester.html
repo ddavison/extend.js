@@ -61,6 +61,9 @@
             "works".prepend(["testing", "if", "this"]) === "testingifthisworks" ? null : addError("S", 27);
             "works".prepend(["testing", "if", "this", ""], { delimiter: " " }) === "testing if this works" ? null : addError("S", 28);
 
+            "test".repeat(3) === "testtesttest" ? null : addError("S", 29);
+            "0".repeat(10) === "0000000000" ? null : addError("S", 30);
+
             //replaceme === false ? null : addError();
 
             var outputString = errors.length > 0 ? "The following test cases failed: <br />" + errors.join("<br />") : "All test cases passed";
