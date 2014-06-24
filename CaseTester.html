@@ -64,7 +64,12 @@
             "test".repeat(3) === "testtesttest" ? null : addError("S", 29);
             "0".repeat(10) === "0000000000" ? null : addError("S", 30);
 
-            //replaceme === false ? null : addError();
+            //Number testing
+            isNumeric(5) === true ? null : addError("N", 31);
+            isNumeric("5") === true ? null : addError("N", 31);
+            isNumeric("test") === false ? null : addError("N", 31);
+            isNumeric([5]) === true ? null : addError("N", 31);
+            
 
             var outputString = errors.length > 0 ? "The following test cases failed: <br />" + errors.join("<br />") : "All test cases passed";
 
