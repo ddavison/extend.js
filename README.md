@@ -107,6 +107,19 @@ String
 		"texting".indicesOf("T", {caseSensitive: true});
 			Returns [];
 
+	String.append
+		Description: Appends the given text to the string
+		Usage: String.append(appendString, options)
+		Return Type: string
+		Options:
+			delimiter: string (specifies which character should seperate items if an array as passed, default: "")
+		Usage Example:
+		"test".append("ing");
+			Returns "testing"
+		"test".append(["ing", "if", "this", "works"]);
+			Returns "testingifthisworks"
+		"test".append(["ing", "if", "this", "works"], {delimiter: " "});
+			Returns "testing if this works"
 Number
 	
 	isNumeric
