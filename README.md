@@ -112,13 +112,27 @@ String
 		Usage: String.append(appendString, options)
 		Return Type: string
 		Options:
-			delimiter: string (specifies which character should seperate items if an array as passed, default: "")
+			delimiter: string (default: "", specifies which character should seperate items if an array as passed)
 		Usage Example:
 		"test".append("ing");
 			Returns "testing"
 		"test".append(["ing", "if", "this", "works"]);
 			Returns "testingifthisworks"
 		"test".append(["ing", "if", "this", "works"], {delimiter: " "});
+			Returns "testing if this works"
+			
+	String.prepend
+		Description: Prepends the given text to the string
+		Usage: String.prepend(prependString, options)
+		Return Type: string
+		Options:
+			delimiter: string (default: "", specifies which character should seperate items if an array as passed)
+		Usage Example:
+		"ing".append("test");
+			Returns "testing"
+		"works".append(["testing", "if", "this"]);
+			Returns "testingifthisworks"
+		"works".append(["testing", "if", "this", ""], {delimiter: " "});
 			Returns "testing if this works"
 Number
 	
@@ -142,6 +156,7 @@ Array
 		Return Type: boolean
 		Options:
 			caseSensitive: boolean (default: false, Only works for strings)
+			deepSearch: boolean (default: true, specifies whether a shallow search should be performed (for arrays))
 		Usage Examples: 
 			[1,2,3,4,5].contains("te"); 
 				Returns false
@@ -153,6 +168,20 @@ Array
 				Returns true
 			["test", "other"].contains("TEST", {caseSensitive: true});
 				Returns false
+			
+	Array.equals
+		Description: Checks to see if two arrays are equal, including all sub arrays.
+		Usage: [].equals(input); 
+		Return Type: boolean
+		Usage Examples: 
+			[1,2,3,4,5].equals([1,2,3,4,5]);
+				Returns true
+			[1,2,3,4,5].equals([1,2,2,4,5]); 
+				Returns false
+			[1,2,[3,3],4,5].equals([1,2,[3,4],4,5]);
+				Returns false
+			["test", "other"].contains("TEST");
+				Returns true
 			
 Function
 
