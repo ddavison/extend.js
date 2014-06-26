@@ -16,6 +16,7 @@ var initOptions = function (options, defaults) {
 };
 
 String.prototype.padLeft = function (char, length, options) {
+    if (typeof char === "undefined" || char === null || char === "" || typeof length === "undefined" || length === null || !(length > 0)) { return this.toString(); }
     if (typeof char === "string" && typeof length === "number" && length >= 1) {
         var tempString = "";
         var loops = Math.floor((length - this.length) / char.length);
@@ -33,6 +34,7 @@ String.prototype.padLeft = function (char, length, options) {
 };
 
 String.prototype.padRight = function (char, length, options) {
+    if (typeof char === "undefined" || char === null || char === "" || typeof length === "undefined" || length === null || !(length > 0)) { return this.toString(); }
     if (typeof char === "string" && typeof length === "number" && length >= 1) {
         var tempString = "";
         var loops = Math.floor((length - this.length) / char.length);
@@ -65,10 +67,12 @@ Function.prototype.perfTest = function (loops, obj, returnExecutionsPerSecond, o
 };
 
 var isNumeric = function (number, options) {
+    if (typeof number === "undefined" || number === null) { return false; }
     return (!isNaN(number) && isFinite(number));
 }
 
-String.prototype.replaceChar = function(char, index, options) {
+String.prototype.replaceChar = function (char, index, options) {
+    if (typeof char === "undefined" || char === null || char === "" || typeof index === "undefined" || index === null) { return this.toString(); }
     if (index >= 0 && index < this.length) {
         var str = this.split("");
 		char.length > 1 ? char = char.charAt(0) : null;
@@ -79,6 +83,7 @@ String.prototype.replaceChar = function(char, index, options) {
 }
 
 String.prototype.replaceChars = function (char, startIndex, length, options) {
+    if (typeof char === "undefined" || char === null || char === "" || typeof startIndex === "undefined" || startIndex === null || typeof length === "undefined" || length === null) { return this.toString(); }
     if (startIndex >= 0 && length >= 0 && startIndex < this.length) {
         startIndex + length <= this.length ? null : length = this.length - startIndex;
         var returnValue = this;
@@ -91,7 +96,7 @@ String.prototype.replaceChars = function (char, startIndex, length, options) {
 }
 
 String.prototype.indicesOf = function (searchString, options) {
-    if (typeof input === "undefined" || input === null || input === "") { return []; }
+    if (typeof searchString === "undefined" || searchString === null) { return []; }
     var options = initOptions(options, { caseSensitive: false });
     var startPoint = 0;
     var result = -1;
@@ -137,7 +142,7 @@ String.prototype.toCharArray = function (options) {
 };
 
 String.prototype.repeat = function (repeatAmount, options) {
-    if (typeof repeatAmount === "undefined" || repeatAmount === null) { return this; }
+    if (typeof repeatAmount === "undefined" || repeatAmount === null) { return this.toString(); }
     var returnString = "";
     for (var i = 0; i < repeatAmount; i++) {
         returnString += this;
@@ -146,14 +151,14 @@ String.prototype.repeat = function (repeatAmount, options) {
 };
 
 String.prototype.append = function (input, options) {
-    if (typeof input === "undefined" || input === null || input === "") { return this; }
+    if (typeof input === "undefined" || input === null || input === "") { return this.toString(); }
     var options = initOptions(options, { caseSensitive: false, delimiter: "" });
     var input = input instanceof Array ? input.join(options.delimiter) : input;
     return this + input;
 };
 
 String.prototype.prepend = function (input, options) {
-    if (typeof input === "undefined" || input === null || input === "") { return this; }
+    if (typeof input === "undefined" || input === null || input === "") { return this.toString(); }
     var options = initOptions(options, { caseSensitive: false, delimiter: "" });
     var input = input instanceof Array ? input.join(options.delimiter) : input;
     return input + this;

@@ -10,73 +10,97 @@
             };
 
             //Array testing
-            [1, 2, 3].equals([1, 2, 3]) === true ? null : addError("A", 1);
-            [1, 3, 3].equals([1, 2, 3]) === false ? null : addError("A", 2);
-            [1, [2.1, 2.2, 2.3], 3].equals([1, [2.1, 2.2, 2.3], 3]) === true ? null : addError("A", 3);
-            [1, [2.1, 2.3, 2.3], 3].equals([1, [2.1, 2.2, 2.3], 3]) === false ? null : addError("A", 4);
+            [1, 2, 3].equals([1, 2, 3]) === true ? null : addError(Error().stack);
+            [1, 3, 3].equals([1, 2, 3]) === false ? null : addError(Error().stack);
+            [1, [2.1, 2.2, 2.3], 3].equals([1, [2.1, 2.2, 2.3], 3]) === true ? null : addError(Error().stack);
+            [1, [2.1, 2.3, 2.3], 3].equals([1, [2.1, 2.2, 2.3], 3]) === false ? null : addError(Error().stack);
+            [].equals(null) === false ? null : addError(Error().stack);
+            [].equals() === false ? null : addError(Error().stack);
 
-            [1, 2, 3, 4, 5].contains(5) === true ? null : addError("A", 5);
-            [1, [2.1, 2.2, 2.3], 3].contains(2.1) === true ? null : addError("A", 6);
-            [1, [2.1, 2.2, 2.3], 3].contains([2.1, 2.2, 2.3]) === true ? null : addError("A", 7);
-            [1, [2.1, 2.2, [3, 4, [6, 7, 8], 5], 2.3], 3].contains(8) === true ? null : addError("A", 8);
-            [1, [2.1, 2.2, [3, 4, [6, 7, 8], 5], 2.3], 3].contains(9) === false ? null : addError("A", 9);
-            [1, [2.1, 2.2, [3, 4, [6, 7, 8], 5], 2.3], 3].contains(8, { deepSearch: false }) === false ? null : addError("A", 10);
-             
+            [1, 2, 3, 4, 5].contains(5) === true ? null : addError(Error().stack);
+            [1, [2.1, 2.2, 2.3], 3].contains(2.1) === true ? null : addError(Error().stack);
+            [1, [2.1, 2.2, 2.3], 3].contains([2.1, 2.2, 2.3]) === true ? null : addError(Error().stack);
+            [1, [2.1, 2.2, [3, 4, [6, 7, 8], 5], 2.3], 3].contains(8) === true ? null : addError(Error().stack);
+            [1, [2.1, 2.2, [3, 4, [6, 7, 8], 5], 2.3], 3].contains(9) === false ? null : addError(Error().stack);
+            [1, [2.1, 2.2, [3, 4, [6, 7, 8], 5], 2.3], 3].contains(8, { deepSearch: false }) === false ? null : addError(Error().stack);
+            [].contains(null) === false ? null : addError(Error().stack);
+            [].contains() === false ? null : addError(Error().stack);
 
             //String testing
-            "test".startsWith("te") === true ? null : addError("S", 1);
-            "test".startsWith("st") === false ? null : addError("S", 2);
-            "test".startsWith("tex") === false ? null : addError("S", 3);
-            "test".startsWith("TE") === true ? null : addError("S", 4);
-            "test".startsWith("TE", { caseSensitive: true }) === false ? null : addError("S", 5);
-            "test".startsWith("") === false ? null : addError("S", 31);
-            "test".startsWith() === false ? null : addError("S", 34);
+            "test".startsWith("te") === true ? null : addError(Error().stack);
+            "test".startsWith("st") === false ? null : addError(Error().stack);
+            "test".startsWith("tex") === false ? null : addError(Error().stack);
+            "test".startsWith("TE") === true ? null : addError(Error().stack);
+            "test".startsWith("TE", { caseSensitive: true }) === false ? null : addError(Error().stack);
+            "test".startsWith("") === false ? null : addError(Error().stack);
+            "test".startsWith(null) === false ? null : addError(Error().stack);
+            "test".startsWith() === false ? null : addError(Error().stack);
 
-            "test".endsWith("te") === false ? null : addError("S", 6);
-            "test".endsWith("st") === true ? null : addError("S", 7);
-            "test".endsWith("tex") === false ? null : addError("S", 8);
-            "test".endsWith("ST") === true ? null : addError("S", 9);
-            "test".endsWith("ST", { caseSensitive: true }) === false ? null : addError("S", 10);
-            "test".endsWith("") === false ? null : addError("S", 32);
-            "test".endsWith() === false ? null : addError("S", 35);
+            "test".endsWith("te") === false ? null : addError(Error().stack);
+            "test".endsWith("st") === true ? null : addError(Error().stack);
+            "test".endsWith("tex") === false ? null : addError(Error().stack);
+            "test".endsWith("ST") === true ? null : addError(Error().stack);
+            "test".endsWith("ST", { caseSensitive: true }) === false ? null : addError(Error().stack);
+            "test".endsWith("") === false ? null : addError(Error().stack);
+            "test".endsWith(null) === false ? null : addError(Error().stack);
+            "test".endsWith() === false ? null : addError(Error().stack);
             
-            "test".contains("te") === true ? null : addError("S", 11);
-            "test".contains("tex") === false ? null : addError("S", 12);
-            "test".contains("TE") === true ? null : addError("S", 13);
-            "test".contains("TE", { caseSensitive: true }) === false ? null : addError("S", 14);
-            "test".contains("") === false ? null : addError("S", 33);
-            "test".contains() === false ? null : addError("S", 36);
+            "test".contains("te") === true ? null : addError(Error().stack);
+            "test".contains("tex") === false ? null : addError(Error().stack);
+            "test".contains("TE") === true ? null : addError(Error().stack);
+            "test".contains("TE", { caseSensitive: true }) === false ? null : addError(Error().stack);
+            "test".contains("") === false ? null : addError(Error().stack);
+            "test".contains(null) === false ? null : addError(Error().stack);
+            "test".contains() === false ? null : addError(Error().stack);
 
-            "string".padLeft("0", 15) === "000000000string" ? null : addError("S", 15);
-            "string".padLeft("0a", 15) === "0a0a0a0a0string" ? null : addError("S", 16);
+            "string".padLeft("0", 15) === "000000000string" ? null : addError(Error().stack);
+            "string".padLeft("0a", 15) === "0a0a0a0a0string" ? null : addError(Error().stack);
+            "test".padLeft(null) === "test" ? null : addError(Error().stack);
+            "test".padLeft() === "test" ? null : addError(Error().stack);
 
-            "string".padRight("0", 15) === "string000000000" ? null : addError("S", 17);
-            "string".padRight("0a", 15) === "string0a0a0a0a0" ? null : addError("S", 18);
+            "string".padRight("0", 15) === "string000000000" ? null : addError(Error().stack);
+            "string".padRight("0a", 15) === "string0a0a0a0a0" ? null : addError(Error().stack);
+            "test".padRight(null) === "test" ? null : addError(Error().stack);
+            "test".padRight() === "test" ? null : addError(Error().stack);
 
-            "texting".replaceChar("s", 2) === "testing" ? null : addError("S", 19);
+            "texting".replaceChar("s", 2) === "testing" ? null : addError(Error().stack);
+            "test".replaceChar(null) === "test" ? null : addError(Error().stack);
+            "test".replaceChar() === "test" ? null : addError(Error().stack);
 
-            "texting".replaceChars("+", 2, 3) === "te+++ng" ? null : addError("S", 20);
+            "texting".replaceChars("+", 2, 3) === "te+++ng" ? null : addError(Error().stack);
+            "test".replaceChars(null) === "test" ? null : addError(Error().stack);
+            "test".replaceChars() === "test" ? null : addError(Error().stack);
 
-            "texting".indicesOf("T").equals([0, 3]) ? null : addError("S", 21);
-            "texting".indicesOf("T", { caseSensitive: true }).equals([]) ? null : addError("S", 22);
+            "texting".indicesOf("T").equals([0, 3]) ? null : addError(Error().stack);
+            "texting".indicesOf("T", { caseSensitive: true }).equals([]) ? null : addError(Error().stack);
+            "test".indicesOf(null).equals([]) ? null : addError(Error().stack);
+            "test".indicesOf().equals([]) ? null : addError(Error().stack);
 
-            "test".append("ing") === "testing" ? null : addError("S", 23);
-            "test".append(["ing", "if", "this", "works"]) === "testingifthisworks" ? null : addError("S", 24);
-            "test".append(["ing", "if", "this", "works"], { delimiter: " " }) === "testing if this works" ? null : addError("S", 25);
+            "test".append("ing") === "testing" ? null : addError(Error().stack);
+            "test".append(["ing", "if", "this", "works"]) === "testingifthisworks" ? null : addError(Error().stack);
+            "test".append(["ing", "if", "this", "works"], { delimiter: " " }) === "testing if this works" ? null : addError(Error().stack);
+            "test".append(null) === "test" ? null : addError(Error().stack);
+            "test".append() === "test" ? null : addError(Error().stack);
 
-            "ing".prepend("test") === "testing" ? null : addError("S", 26);
-            "works".prepend(["testing", "if", "this"]) === "testingifthisworks" ? null : addError("S", 27);
-            "works".prepend(["testing", "if", "this", ""], { delimiter: " " }) === "testing if this works" ? null : addError("S", 28);
+            "ing".prepend("test") === "testing" ? null : addError(Error().stack);
+            "works".prepend(["testing", "if", "this"]) === "testingifthisworks" ? null : addError(Error().stack);
+            "works".prepend(["testing", "if", "this", ""], { delimiter: " " }) === "testing if this works" ? null : addError(Error().stack);
+            "test".prepend(null) === "test" ? null : addError(Error().stack);
+            "test".prepend() === "test" ? null : addError(Error().stack);
 
-            "test".repeat(3) === "testtesttest" ? null : addError("S", 29);
-            "0".repeat(10) === "0000000000" ? null : addError("S", 30);
+            "test".repeat(3) === "testtesttest" ? null : addError(Error().stack);
+            "0".repeat(10) === "0000000000" ? null : addError(Error().stack);
+            "test".repeat(null) === "test" ? null : addError(Error().stack);
+            "test".repeat() === "test" ? null : addError(Error().stack);
 
             //Number testing
-            isNumeric(5) === true ? null : addError("N", 31);
-            isNumeric("5") === true ? null : addError("N", 31);
-            isNumeric("test") === false ? null : addError("N", 31);
-            isNumeric([5]) === true ? null : addError("N", 31);
-            isNumeric([5, 2]) === false ? null : addError("N", 31);
+            isNumeric(5) === true ? null : addError(Error().stack);
+            isNumeric("5") === true ? null : addError(Error().stack);
+            isNumeric("test") === false ? null : addError(Error().stack);
+            isNumeric([5]) === true ? null : addError(Error().stack);
+            isNumeric([5, 2]) === false ? null : addError(Error().stack);
+            isNumeric(null) === false ? null : addError(Error().stack);
+            isNumeric() === false ? null : addError(Error().stack);
             
 
             var outputString = errors.length > 0 ? "The following test cases failed: <br />" + errors.join("<br />") : "All test cases passed";
