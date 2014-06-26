@@ -30,6 +30,7 @@
             "test".startsWith("TE") === true ? null : addError("S", 4);
             "test".startsWith("TE", { caseSensitive: true }) === false ? null : addError("S", 5);
             "test".startsWith("") === false ? null : addError("S", 31);
+            "test".startsWith() === false ? null : addError("S", 34);
 
             "test".endsWith("te") === false ? null : addError("S", 6);
             "test".endsWith("st") === true ? null : addError("S", 7);
@@ -37,12 +38,14 @@
             "test".endsWith("ST") === true ? null : addError("S", 9);
             "test".endsWith("ST", { caseSensitive: true }) === false ? null : addError("S", 10);
             "test".endsWith("") === false ? null : addError("S", 32);
+            "test".endsWith() === false ? null : addError("S", 35);
             
             "test".contains("te") === true ? null : addError("S", 11);
             "test".contains("tex") === false ? null : addError("S", 12);
             "test".contains("TE") === true ? null : addError("S", 13);
             "test".contains("TE", { caseSensitive: true }) === false ? null : addError("S", 14);
             "test".contains("") === false ? null : addError("S", 33);
+            "test".contains() === false ? null : addError("S", 36);
 
             "string".padLeft("0", 15) === "000000000string" ? null : addError("S", 15);
             "string".padLeft("0a", 15) === "0a0a0a0a0string" ? null : addError("S", 16);

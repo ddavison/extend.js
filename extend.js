@@ -91,6 +91,7 @@ String.prototype.replaceChars = function (char, startIndex, length, options) {
 }
 
 String.prototype.indicesOf = function (searchString, options) {
+    if (typeof input === "undefined" || input === null || input === "") { return []; }
     var options = initOptions(options, { caseSensitive: false });
     var startPoint = 0;
     var result = -1;
