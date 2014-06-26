@@ -29,20 +29,24 @@
             "test".startsWith("tex") === false ? null : addError("S", 3);
             "test".startsWith("TE") === true ? null : addError("S", 4);
             "test".startsWith("TE", { caseSensitive: true }) === false ? null : addError("S", 5);
+            "test".startsWith("") === false ? null : addError("S", 31);
 
             "test".endsWith("te") === false ? null : addError("S", 6);
             "test".endsWith("st") === true ? null : addError("S", 7);
             "test".endsWith("tex") === false ? null : addError("S", 8);
             "test".endsWith("ST") === true ? null : addError("S", 9);
             "test".endsWith("ST", { caseSensitive: true }) === false ? null : addError("S", 10);
+            "test".endsWith("") === false ? null : addError("S", 32);
             
             "test".contains("te") === true ? null : addError("S", 11);
             "test".contains("tex") === false ? null : addError("S", 12);
             "test".contains("TE") === true ? null : addError("S", 13);
             "test".contains("TE", { caseSensitive: true }) === false ? null : addError("S", 14);
+            "test".contains("") === false ? null : addError("S", 33);
 
             "string".padLeft("0", 15) === "000000000string" ? null : addError("S", 15);
             "string".padLeft("0a", 15) === "0a0a0a0a0string" ? null : addError("S", 16);
+
             "string".padRight("0", 15) === "string000000000" ? null : addError("S", 17);
             "string".padRight("0a", 15) === "string0a0a0a0a0" ? null : addError("S", 18);
 
@@ -69,6 +73,7 @@
             isNumeric("5") === true ? null : addError("N", 31);
             isNumeric("test") === false ? null : addError("N", 31);
             isNumeric([5]) === true ? null : addError("N", 31);
+            isNumeric([5, 2]) === false ? null : addError("N", 31);
             
 
             var outputString = errors.length > 0 ? "The following test cases failed: <br />" + errors.join("<br />") : "All test cases passed";

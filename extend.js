@@ -110,16 +110,19 @@ String.prototype.indicesOf = function (searchString, options) {
 }
 
 String.prototype.startsWith = function (input, options) {
+    if (typeof input === "undefined" || input === null || input === "") { return false; }
     var options = initOptions(options, { caseSensitive: false });
     return options.caseSensitive ? this.indexOf(input) == 0 : this.toLowerCase().indexOf(input.toLowerCase()) == 0;
 };
 
 String.prototype.endsWith = function (input, options) {
+    if (typeof input === "undefined" || input === null || input === "") { return false; }
     var options = initOptions(options, { caseSensitive: false });
     return options.caseSensitive ? this.indexOf(input) == this.length - input.length : this.toLowerCase().indexOf(input.toLowerCase()) == this.length - input.length;
 };
 
 String.prototype.contains = function (input, options) {
+    if (typeof input === "undefined" || input === null || input === "") { return false; }
     var options = initOptions(options, { caseSensitive: false });
     return options.caseSensitive ? (this.indexOf(input) !== -1) : (this.toLowerCase().indexOf(input.toLowerCase()) !== -1);
 };
@@ -133,6 +136,7 @@ String.prototype.toCharArray = function (options) {
 };
 
 String.prototype.repeat = function (repeatAmount, options) {
+    if (typeof repeatAmount === "undefined" || repeatAmount === null) { return this; }
     var returnString = "";
     for (var i = 0; i < repeatAmount; i++) {
         returnString += this;
@@ -141,18 +145,21 @@ String.prototype.repeat = function (repeatAmount, options) {
 };
 
 String.prototype.append = function (input, options) {
+    if (typeof input === "undefined" || input === null || input === "") { return this; }
     var options = initOptions(options, { caseSensitive: false, delimiter: "" });
     var input = input instanceof Array ? input.join(options.delimiter) : input;
     return this + input;
 };
 
 String.prototype.prepend = function (input, options) {
+    if (typeof input === "undefined" || input === null || input === "") { return this; }
     var options = initOptions(options, { caseSensitive: false, delimiter: "" });
     var input = input instanceof Array ? input.join(options.delimiter) : input;
     return input + this;
 };
 
 Array.prototype.equals = function (comparisonArray, options) {
+    if (typeof comparisonArray === "undefined" || comparisonArray === null || !comparisonArray instanceof Array) { return false; }
     if (this.length !== comparisonArray.length) {
         return false;
     }
@@ -169,6 +176,7 @@ Array.prototype.equals = function (comparisonArray, options) {
 };
 
 Array.prototype.contains = function (input, options) {
+    if (typeof input === "undefined" || input === null) { return false; }
     var options = initOptions(options, { caseSensitive: false, deepSearch: true });
     for (var i = 0; i < this.length; i++) {
         if (options.caseSensitive === false && typeof this[i] === "string" && typeof input === "string") {
